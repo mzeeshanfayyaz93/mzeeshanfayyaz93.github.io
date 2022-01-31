@@ -1,682 +1,858 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Nafie develops the best quality website that serves for the long-term. Well-documented, clean, easy and elegant interface helps any non-technical clients.">
-    <meta name="keywords" content="portfolio, agency, business, clean, company, corporate, creative, gallery, rtl, modern, photography, vue, vuejs, responsive, sass">
+<html lang="en">
 
-    <!-- title of the browser tab -->
-    <title>M Zeeshan Fayyaz - Portfolio </title>
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <!-- favicon -->
-    <link rel="icon" href="assets/favicon.ico">
+  <title>M Zeeshan Fayyaz - Portfolio</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
 
-    <!-- fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto&family=Saira+Stencil+One&text=Nafie&display=swap">
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-    <!-- css libraries file -->
-    <link rel="stylesheet" href="styles/libraries.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
-    <!-- main style file -->
-    <link rel="stylesheet" href="styles/main.css">
-  </head>
-  <body>
-    <div id="app">
-      <div id="app-inner" ref="appRef"
-        :class="[savedTheme, {'enable-focus-style': isAnyFocus}]"
-        @click="isAnyFocus = false"
-        @keyup.tab="isAnyFocus = true">
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-        <div class="circle-cursor circle-cursor-outer" ref="circleCursorOuter"></div>
-        <div class="circle-cursor circle-cursor-inner" ref="circleCursorInner"></div>
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
 
-        <!-- start preloader-->
-        <transition name="preloader">
-          <div class="preloader" v-if="isPreloading">
-            <div class="circle">
-              <div class="double-bounce1"></div>
-              <div class="double-bounce2"></div>
-            </div>
-          </div>
-        </transition>
-        <!-- end preloader-->
+  <!-- =======================================================
+  * Template Name: Personal - v4.7.0
+  * Template URL: https://bootstrapmade.com/personal-free-resume-bootstrap-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
 
-        <!-- start of header -->
-        <header :class="{
-          'big-header': isHeaderBig,
-          'small-header': !isHeaderBig,
-          'header-hidden': isHeaderHidden
-        }">
-          <div class="container">
-            <!-- logo -->
-            <div class="logo" title="M Zeeshan Fayyaz">
-              <h1><a href="index.html">M Zeeshan Fayyaz</a></h1>
-            </div>
+<body>
 
-            <!-- nav links -->
-            <nav :class="{'menu-open': isNavMenuOpen}" ref="headerNav">
+  <!-- ======= Header ======= -->
+  <header id="header">
+    <div class="container">
 
-              <!-- nav menu links -->
-              <ul class="nav-links">
-                <li v-for="link in navLinks" :key="link.url">
-                  <a :href="link.url" @click="closeNavMenu">
-                    {{ link.title.en }}
-                  </a>
-                </li>
-              </ul>
+      <h1><a href="index.html">M Zeeshan Fayyaz</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a> -->
+      <h2>I'm a passionate <span>Website Designer & Developer</span></h2>
 
-              <!-- menu content in big devices (hidden in mobile/tablet) -->
-              <div class="desktop-menu-content" tabindex="-1">
-                <div class="container">
-
-                  <!-- about us -->
-                  <div class="about-us">
-                    <p>
-                      I love making things simple, intuitive and expertly crafted!
-                    </p>
-                    <h4 class="block-title">
-                      Product is the vital essence of what i do, truly great product is born of meticulous planning and process. This is where i specialized!
-                    </h4>
-                  </div>
-
-                  <!-- contact info -->
-                  <ul class="contact-info row">
-                    <li class="col-lg-4">
-                      <h4 class="block-title">Email</h4>
-                      <ul>
-                        <li><a href="mailto:mzeeshanfayyaz93@gmail.com">mzeeshanfayyaz93@gmail.com</a></li>
-                        <li><a href="mailto:mzeeshanfayyaz92@gmail.com">mzeeshanfayyaz92@gmail.com</a></li>
-                      </ul>
-                    </li>
-                    <li class="col-lg-4">
-                      <h4 class="block-title">Address</h4>
-                      <ul>
-                        <li>
-                          941 saqrqorish Road, alandalos,
-                          <br>
-                          grnata, wa 47122-4194
-                        </li>
-                      </ul>
-                    </li>
-                    <li class="col-lg-4">
-                      <h4 class="block-title">Phone</h4>
-                      <ul>
-                        <li><a href="tel:923444954478">(92) 344 495 4478</a></li>
-                        <li><a href="tel:923444954478">(92) 344 495 4478</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </nav>
-
-            <!-- options icons -->
-            <ul class="options-icons">
-
-              <!-- lang switcher button -->
-              <li class="lang-switcher">
-                <a href="rtl-index.html" title="عرض باللغة العربية">
-                  <img src="assets/images/langs/ar.png" alt="العربية">
-                </a>
-              </li>
-
-              <!-- theme switcher button -->
-              <li class="theme-switcher">
-                <button :class="savedTheme" title="Change Mode" @click="changeAppTheme"></button>
-              </li>
-
-              <!-- hamburger button -->
-              <li class="hamburger-btn" :class="{'open': isNavMenuOpen}">
-                <button @click="toggleNavMenu"
-                  title="Toggle Side Menu"
-                  aria-label="Toggle Side Menu"
-                  ref="navMenuToggleBtn">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </button>
-              </li>
-            </ul>
-          </div>
-        </header>
-        <!-- end of header -->
-
-        <!-- start of hero section -->
-        <div id="hero" class="hero-section" ref="heroSection">
-          <div class="hero-img">
-            <div class="layer" v-clone>
-              <img src="assets/images/hero-img.png" alt="User Name">
-            </div>
-          </div>
-
-          <div class="hero-text">
-            <h2>
-              We Design & Build
-              <br>
-              Creative Website
-            </h2>
-            <a href="#contact" class="btn">Get In Touch</a>
-          </div>
-
-          <div class="social">
-            <ul>
-              <li>
-                <a href="#" target="_blank" rel="noreferrer" v-tooltip="{text: 'Facebook', dir: 'right'}">
-                  <i class="fa fa-facebook" aria-hidden="true"></i>
-                </a>
-              </li>
-              <li>
-                <a href="#" target="_blank" rel="noreferrer" v-tooltip="{text: 'Twitter', dir: 'right'}">
-                  <i class="fa fa-twitter" aria-hidden="true"></i>
-                </a>
-              </li>
-              <li>
-                <a href="#" target="_blank" rel="noreferrer" v-tooltip="{text: 'LinkedIn', dir: 'right'}">
-                  <i class="fa fa-linkedin" aria-hidden="true"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <div class="scroll-down">
-            <a href="#about" title="Scroll Down">Scroll</a>
-          </div>
-        </div>
-        <!-- end of hero section -->
-
-        <!-- start of statistics section -->
-        <div id="statistics" class="statistics-section section">
-          <div class="section-content">
-            <div class="container">
-              <ul class="statistics-items row">
-                <li class="col-sm-12 col-md-6 col-lg-4">
-                  <a href="#experience">
-                    <div class="icon">
-                      <img src="assets/images/icons/emblem.png" alt="Years of Experience">
-                    </div>
-                    <div class="text">
-                      <h3>6+</h3>
-                      <strong>Years of Experience</strong>
-                    </div>
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                  </a>
-                </li>
-                <li class="col-sm-12 col-md-6 col-lg-4">
-                  <a href="#portfolio">
-                    <div class="icon">
-                      <img src="assets/images/icons/check-mark.png" alt="Completed Projects">
-                    </div>
-                    <div class="text">
-                      <h3>170+</h3>
-                      <strong>Completed Projects</strong>
-                    </div>
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                  </a>
-                </li>
-                <li class="col-sm-12 col-md-6 col-lg-4">
-                  <a href="#testimonials">
-                    <div class="icon">
-                      <img src="assets/images/icons/happy.png" alt="Happy Clients">
-                    </div>
-                    <div class="text">
-                      <h3>45+</h3>
-                      <strong>Happy Clients</strong>
-                    </div>
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <!-- end of statistics section -->
-
-        <!-- start of about section -->
-        <div id="about" class="about-section section" tabindex="-1">
-          <div class="container">
-            <div class="section-content row">
-
-              <!-- about image -->
-              <div class="about-img col-lg-6">
-                <div class="layer" v-clone>
-                  <img src="assets/images/about-img.png" alt="User Name">
-                </div>
-              </div>
-
-              <!-- text box -->
-              <div class="about-text col-lg-6">
-                <div class="text-box">
-                  <span class="subtitle">about me</span>
-                  <h2>
-                    Need a Creative Website?
-                    <br>
-                    I can Help You!
-                  </h2>
-                  <p>
-                    Hi! I’m Muhammad Mabrouk, and I’m a developer who has passion for building clean web applications with intuitive functionality. I enjoy the process of turning ideas into reality using creative solutions. I’m always curious about learning new skills, tools, and concepts. In addition to working on various solo full stack projects, I have worked with creative teams, which involves daily stand-ups and communications, source control, and project management.
-                  </p>
-                  <div class="btns-container">
-                    <a href="#contact" class="btn btn-primary">Hire Me</a>
-                    <a download href="#" class="btn btn-outline-light">Download CV</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- end of about section -->
-
-        <!-- start of skills section -->
-        <div id="skills" class="skills-section section" tabindex="-1">
-          <div class="container">
-            <div class="section-content row">
-
-              <!-- text box -->
-              <div class="skills-text col-lg-6">
-                <div class="text-box">
-                  <span class="subtitle">my skills</span>
-                  <h2>
-                    What My Programming
-                    <br>
-                    Skills Included?
-                  </h2>
-                  <p>
-                    I develop simple, intuitive and responsive user interface that helps users get things done with less effort and time with those technologies.
-                  </p>
-                  <div class="toggle-switch-btn">
-                    <input id="skills-list" type="radio" name="skillstype" value="skills" v-model="isSkillsOrTools" checked>
-                    <label for="skills-list" class="link-hover">Skills</label>
-                    <input id="tools-list" type="radio" name="skillstype" value="tools" v-model="isSkillsOrTools">
-                    <label for="tools-list" class="link-hover">Tools</label>
-                    <span class="switcher-toggle"></span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- skills items -->
-              <div class="skills-items col-lg-6">
-
-                <!-- skills list -->
-                <ul v-staggerdelay="50" v-show="isSkillsOrTools === 'skills'">
-                  <li tabindex="0"
-                    v-for="skill in skillsItems"
-                    :key="skill.title"
-                    v-tooltip="{text: skill.title, dir: 'top'}">
-                    <div class="skill-icon">
-                      <img :src="skill.imgUrl" :alt="skill.title">
-                    </div>
-                  </li>
-                </ul>
-
-                <!-- tools list -->
-                <ul v-staggerdelay="50" v-show="isSkillsOrTools === 'tools'">
-                  <li tabindex="0"
-                    v-for="tool in toolsItems"
-                    :key="tool.title"
-                    v-tooltip="{text: tool.title, dir: 'top'}">
-                    <div class="skill-icon">
-                      <img :src="tool.imgUrl" :alt="tool.title">
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- end of skills section -->
-
-        <!-- start of experience section -->
-        <div id="experience" class="experience-section section" tabindex="-1">
-          <div class="container">
-            <div class="section-content row">
-
-              <!-- timeline -->
-              <div class="experience-timeline col-lg-6">
-                <ul class="outer-ul">
-                  <ul class="inner-ul" v-for="(group, index) in experienceChunks" :key="index">
-                    <li class="has-ultimate-tooltip"
-                      tabindex="0"
-                      v-for="item in group"
-                      v-for="item in group">
-                      <template v-if="Object.keys(item).length > 0">
-                        <h3>{{ item.date }}</h3>
-                        <div class="ultimate-tooltip">
-                          <h4 class="ultimate-tooltip-title">{{ item.companyName.en }}</h4>
-                          <h5 class="ultimate-tooltip-subtitle">{{ item.jobTitle.en }}</h5>
-                          <p>{{ item.desc.en }}</p>
-                        </div>
-                        <div class="ultimate-tooltip-arrow"></div>
-                      </template>
-                    </li>
-                  </ul>
-                </ul>
-              </div>
-
-              <!-- text box -->
-              <div class="experience-text col-lg-6">
-                <div class="text-box">
-                  <span class="subtitle">experience</span>
-                  <h2>
-                    6+ Years of Experience
-                    <br>
-                    With Many Awards!
-                  </h2>
-                  <p>
-                    I have been developing sites and apps for 6+ years and i know for sure the main trends and directions of modern design, I have been a visionary and a reliable software engineering partner for world-class brands. You will get a decent result as you expect.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- end of experience section -->
-
-        <!-- start of portfolio section -->
-        <div id="portfolio" class="portfolio-section section" tabindex="-1">
-          <div class="container">
-            <div class="section-content">
-
-              <!-- portfolio items -->
-              <ul class="portfolio-items" ref="portfolioItems" data-no-more-works-msg="No more works to load">
-                <li>
-                  <!-- text box -->
-                  <div class="text-box">
-                    <span class="subtitle">my works</span>
-                    <h2>
-                      See My Works Which
-                      <br>
-                      Will Amaze You!
-                    </h2>
-                    <p>
-                      We develop the best quality website that serves for the long-term. Well-documented, clean, easy and elegant interface helps any non-technical clients.
-                    </p>
-                    <ul class="works-filter">
-                      <li v-for="filter in ['All', 'HTML', 'Wordpress', 'Shopify', 'WIX']" :key="filter">
-                        <button :class="{'active': worksFilter === filter.toLowerCase()}"
-                          @click="worksFilter = filter.toLowerCase()">
-                          {{ filter }}
-                        </button>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
-
-                <!-- start items list -->
-                <li class="portfolio-item"
-                  v-for="work in portfolioItems"
-                  :key="work.title.en"
-                  v-show="worksFilter === 'all' || worksFilter === work.category.slug">
-                  <a :href="work.url" target="_blank" rel="noopener">
-                    <div class="item-img">
-                      <img :src="work.imgUrl" :alt="work.title.en">
-                    </div>
-                    <div class="item-details">
-                      <h3 class="title">{{ work.title.en }}</h3>
-                      <div class="desc">{{ work.desc.en }}</div>
-                    </div>
-                  </a>
-                </li>
-                <!-- end items list -->
-
-                <li>
-                  <button class="more" @click="getPortfolioItems">Load more works</button>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <!-- end of portfolio section -->
-
-        <!-- start of testimonials section -->
-        <div id="testimonials" class="testimonials-section section" tabindex="-1">
-          <div class="container">
-            <div class="section-title">
-              <span class="subtitle">testimonials</span>
-              <h2>
-                Check What's My Clients
-                <br>
-                Say About Me
-              </h2>
-            </div>
-          </div>
-
-          <div class="section-content">
-            <ul class="testimonials-items" v-staggerdelay="500">
-              <li class="has-ultimate-tooltip"
-                tabindex="0"
-                v-for="item in testimonialsItems"
-                :key="item.quoteAuthor.en">
-                <div class="testimonials-item">
-                  <div class="testimonial-author-img">
-                    <img :src="item.imgUrl || 'assets/images/testimonials/anonymous-user.png'" :alt="item.quoteAuthor.en">
-                  </div>
-                  <div class="ultimate-tooltip">
-                    <p>{{ item.quoteContent.en }}</p>
-                    <h4 class="ultimate-tooltip-title">{{ item.quoteAuthor.en }}</h4>
-                    <h5 class="ultimate-tooltip-subtitle">{{ item.jobTitle.en }}</h5>
-                  </div>
-                  <div class="ultimate-tooltip-arrow"></div>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <!-- end of testimonials section -->
-
-        <!-- start of contact section -->
-        <div id="contact" class="contact-section section" tabindex="-1">
-          <div class="container">
-            <div class="section-content row">
-
-              <!-- text box -->
-              <div class="contact-text col-lg-6">
-                <div class="text-box">
-                  <span class="subtitle">contact</span>
-                  <h2>
-                    Have You Any Project?
-                    <br>
-                    Please Drop a Message
-                  </h2>
-                  <p>
-                    Get in touch and let me know how i can help. Fill out the form and i’ll be in touch as soon as possible.
-                  </p>
-                </div>
-
-                <!-- contact info -->
-                <ul class="contact-info">
-                  <li>
-                    <img src="assets/images/icons/address.png" alt="Address">
-                    <div>
-                      <strong>Address:</strong>
-                      941 Saqrqorish Road, alandalos, grnata, wa 47122-4194
-                    </div>
-                  </li>
-                  <li>
-                    <img src="assets/images/icons/phone.png" alt="Phone">
-                    <div>
-                      <strong>Phone:</strong>
-                      <ul>
-                        <li><a href="tel:#" class="ltr-dir">(92) 344 495 4478</a></li>
-                        <li><a href="tel:#" class="ltr-dir">(02) 966 202 291</a></li>
-                      </ul>
-                    </div>
-                  </li>
-                  <li>
-                    <img src="assets/images/icons/email.png" alt="Email">
-                    <div>
-                      <strong>Email:</strong>
-                      <ul>
-                        <li><a href="mailto:mzeeshanfayyaz92@gmail.com">mzeeshanfayyaz93@gmail.com</a></li>
-                        <li><a href="mailto:mzeeshanfayyaz92@gmail.com">mzeeshanfayyaz92@gmail.com</a></li>
-                      </ul>
-                    </div>
-                  </li>
-                </ul>
-
-                <!-- social links -->
-                <ul class="social">
-                  <li>
-                    <a href="#" target="_blank" rel="noreferrer" v-tooltip="{text: 'Facebook', dir: 'top'}">
-                      <i class="fa fa-facebook" aria-hidden="true"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" target="_blank" rel="noreferrer" v-tooltip="{text: 'Twitter', dir: 'top'}">
-                      <i class="fa fa-twitter" aria-hidden="true"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" target="_blank" rel="noreferrer" v-tooltip="{text: 'LinkedIn', dir: 'top'}">
-                      <i class="fa fa-linkedin" aria-hidden="true"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" target="_blank" rel="noreferrer" v-tooltip="{text: 'YouTube', dir: 'top'}">
-                      <i class="fa fa-youtube-play" aria-hidden="true"></i>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- contact form -->
-              <div class="col-lg-6">
-                <form ref="contactForm"
-                  class="contact-form form-styled"
-                  action="contact_form.php"
-                  data-success-msg="Message sent successfully!"
-                  data-err-msg="Oops! something went wrong, please try again.">
-                  <div class="group">
-                    <label>Name</label>
-                    <div class="control has-prefix-icon">
-                      <input type="text"
-                        name="name"
-                        placeholder="e.g. John Doe"
-                        minlength="3"
-                        required>
-                      <i class="fa fa-user-circle prefix-icon" aria-hidden="true"></i>
-
-                      <!-- validation errors messages -->
-                      <div class="errors-msgs">
-                        <input class="required" type="hidden" value="Name is required">
-                        <input class="minLength" type="hidden" value="Name must be at least 3 characters">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="group">
-                    <label>Email</label>
-                    <div class="control has-prefix-icon">
-                      <input class="ltr-dir"
-                        type="email"
-                        inputmode="email"
-                        name="email"
-                        placeholder="e.g. john.doe@gmail.com"
-                        required>
-                      <i class="fa fa-envelope prefix-icon" aria-hidden="true"></i>
-
-                      <!-- validation errors messages -->
-                      <div class="errors-msgs">
-                        <input class="required" type="hidden" value="Email is required">
-                        <input class="invalid" type="hidden" value="Please enter a valid email address">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="group phone-number">
-                    <label>Phone <span class="optional">(Optional)</span></label>
-                    <div class="control has-prefix-icon">
-                      <input type="tel"
-                        inputmode="tel"
-                        name="phone"
-                        placeholder="Phone Number">
-                      <i class="fa fa-phone prefix-icon" aria-hidden="true"></i>
-
-                      <!-- validation errors messages -->
-                      <div class="errors-msgs">
-                        <input class="invalid" type="hidden" value="Please enter a valid Phone Number">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="group">
-                    <label>Message</label>
-                    <div class="control has-prefix-icon">
-                      <textarea name="message" placeholder="Write message..." required></textarea>
-                      <i class="fa fa-comments prefix-icon" aria-hidden="true"></i>
-
-                      <!-- validation errors messages -->
-                      <div class="errors-msgs">
-                        <input class="required" type="hidden" value="Message is required">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="group">
-                    <div class="control">
-                      <button class="submit-btn btn btn-dark" type="button" @click="contactFormValidation">Send</button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- end of contact section -->
-
-        <!-- start of footer -->
-        <footer>
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-6">
-                <!-- logo -->
-                <div class="logo" title="M Zeeshan Fayyaz">
-                  <h1><a href="index.html">M Zeeshan Fayyaz</a></h1>
-                </div>
-              </div>
-              <div class="col-lg-6">
-                &copy; {{ copyrightDate }} Proudly Powered by
-                <a href="#" target="_blank" rel="noopener">M Zeeshan Fayyaz</a>
-              </div>
-            </div>
-          </div>
-        </footer>
-        <!-- end of footer -->
-
-        <!-- scroll to top button -->
-        <button ref="scrollTopBtn"
-          :class="['scroll-to-top', isScrollTopBtnDisplayed && 'show-scrollTop']"
-          title="Back To Top"
-          tabindex="0"
-          @click="scrollToTop">
-          <i class="fa fa-angle-up" aria-hidden="true"></i>
-        </button>
-
-        <!-- toast notifications -->
-        <ul class="notifications-container">
-          <transition-group name="notify">
-            <li v-for="notify of notifications"
-              :key="notify.id"
-              :id="notify.id"
-              :class="['notification', 'show', notify.className, notify.time && 'timer']"
-            >
-              {{ notify.msg }}
-              <i class="fa fa-times link-hover" aria-hidden="true" @click="dismissNotify(notify.id)"></i>
-              <span v-if="notify.time"
-                class="disappearing-time"
-                :style="{ 'animation-duration': notify.time + 'ms' }"></span>
-            </li>
-          </transition-group>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link active" href="#header">Home</a></li>
+          <li><a class="nav-link" href="#about">About</a></li>
+          <li><a class="nav-link" href="#resume">Resume</a></li>
+          <li><a class="nav-link" href="#services">Services</a></li>
+          <li><a class="nav-link" href="#portfolio">Portfolio</a></li>
+          <li><a class="nav-link" href="#contact">Contact</a></li>
         </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
 
-        <!-- ajax loading -->
-        <div v-show="isAjaxLoading" class="ajax-loading">
-          <span></span>
+      <div class="social-links">
+        <a href="https://twitter.com/MZeeshanFayyaz" class="twitter"><i class="bi bi-twitter"></i></a>
+        <a href="https://www.facebook.com/MZeeshanFayyaz01/" class="facebook"><i class="bi bi-facebook"></i></a>
+
+        <a href="https://www.linkedin.com/in/m-zeeshan-fayyaz-a5b460114/" class="linkedin"><i class="bi bi-linkedin"></i></a>
+      </div>
+ 
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= About Section ======= -->
+  <section id="about" class="about">
+
+    <!-- ======= About Me ======= -->
+    <div class="about-me container">
+
+      <div class="section-title">
+        <h2>About</h2>
+        <p>Learn more about me</p>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-4" data-aos="fade-right">
+          <img src="assets/img/me.jpg" class="img-fluid" alt="">
+        </div>
+        <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
+          <h3>Website Developer</h3>
+          <p class="fst-italic">
+            I have 6+ years of experience in Frontend Development, WordPress Design & Development, Shopify, WIX, and PrestaShop, and I design and develop 450+ Functional Websites, Blog Websites, Portfolio websites, Online Shopping Website on all platforms. 
+          </p>
+          <div class="row">
+            <div class="col-lg-6">
+              <ul>
+                <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>5 May 1992</span></li>
+                 <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+971 50 157 3274</span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>Abu Dubai, UAE</span></li>
+				<li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>mzeeshanfayyaz93@gmail.com</span></li>
+              </ul>
+            </div>
+            <div class="col-lg-6">
+              <ul>
+                <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>29</span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>BS (Software Engineering) </span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong>University:</strong> <span>UET Taxila</span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>Available</span></li>
+              </ul>
+            </div>
+          </div>
+          <p>
+            I want to work and gain some experience of a highly competitive environment in some reputed organization. Being a part of that organization to enhance my skills and expertise in order to accept the challenges, through my professional experience. To excel in Software Engineering field through hard work, Practice, research, and skills.
+          </p>
         </div>
       </div>
+
+    </div><!-- End About Me -->
+
+    <!-- ======= Counts ======= -->
+    <div class="counts container">
+
+      <div class="row">
+
+        <div class="col-lg-3 col-md-6">
+          <div class="count-box">
+            <i class="bi bi-emoji-smile"></i>
+            <span data-purecounter-start="0" data-purecounter-end="35" data-purecounter-duration="1" class="purecounter"></span>
+            <p>Happy Clients</p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
+          <div class="count-box">
+            <i class="bi bi-journal-richtext"></i>
+            <span data-purecounter-start="0" data-purecounter-end="350" data-purecounter-duration="1" class="purecounter"></span>
+            <p>Projects</p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+          <div class="count-box">
+            <i class="bi bi-headset"></i>
+            <span data-purecounter-start="0" data-purecounter-end="24" data-purecounter-duration="1" class="purecounter"></span>
+            <p>Hours Of Support</p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+          <div class="count-box">
+            <i class="bi bi-award"></i>
+            <span data-purecounter-start="0" data-purecounter-end="5" data-purecounter-duration="1" class="purecounter"></span>
+            <p>Awards</p>
+          </div> 
+        </div>
+
+      </div>
+
+    </div><!-- End Counts -->
+
+    <!-- ======= Skills  ======= -->
+    <div class="skills container">
+
+      <div class="section-title">
+        <h2>Skills</h2>
+      </div>
+
+      <div class="row skills-content">
+
+        <div class="col-lg-6">
+
+          <div class="progress">
+            <span class="skill">HTML <i class="val">100%</i></span>
+            <div class="progress-bar-wrap">
+              <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+
+          <div class="progress">
+            <span class="skill">CSS <i class="val">100%</i></span>
+            <div class="progress-bar-wrap">
+              <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+		<div class="progress">
+            <span class="skill">Foundation <i class="val">100%</i></span>
+            <div class="progress-bar-wrap">
+              <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+          <div class="progress">
+            <span class="skill">JavaScript <i class="val">75%</i></span>
+            <div class="progress-bar-wrap">
+              <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+		  
+		  <div class="progress">
+            <span class="skill">jQuery <i class="val">75%</i></span>
+            <div class="progress-bar-wrap">
+              <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+		  
+		  <div class="progress">
+            <span class="skill">Prestashop <i class="val">80%</i></span>
+            <div class="progress-bar-wrap">
+              <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="col-lg-6">
+		
+		<div class="progress">
+            <span class="skill">Bootstrap <i class="val">100%</i></span>
+            <div class="progress-bar-wrap">
+              <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+
+          <div class="progress">
+            <span class="skill">PHP <i class="val">60%</i></span>
+            <div class="progress-bar-wrap">
+              <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+
+          <div class="progress">
+            <span class="skill">WordPress/CMS <i class="val">90%</i></span>
+            <div class="progress-bar-wrap">
+              <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+		  <div class="progress">
+            <span class="skill">Shopify <i class="val">75%</i></span>
+            <div class="progress-bar-wrap">
+              <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+
+          <div class="progress">
+            <span class="skill">Photoshop <i class="val">55%</i></span>
+            <div class="progress-bar-wrap">
+              <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+		  
+		  <div class="progress">
+            <span class="skill">Wix <i class="val">80%</i></span>
+            <div class="progress-bar-wrap">
+              <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div><!-- End Skills -->
+
+    <!-- ======= Interests ======= -->
+    <div class="interests container">
+
+      <div class="section-title">
+        <h2>Interests</h2>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-3 col-md-4">
+          <div class="icon-box">
+            <i class="ri-store-line" style="color: #ffbb2c;"></i>
+            <h3>Freelanceing</h3>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
+          <div class="icon-box">
+            <i class="ri-bar-chart-box-line" style="color: #5578ff;"></i>
+            <h3>Learning</h3>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
+          <div class="icon-box">
+            <i class="ri-calendar-todo-line" style="color: #e80368;"></i>
+            <h3>Jogging</h3>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 mt-4 mt-lg-0">
+          <div class="icon-box">
+            <i class="ri-paint-brush-line" style="color: #e361ff;"></i>
+            <h3>Designing</h3>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 mt-4">
+          <div class="icon-box">
+            <i class="ri-database-2-line" style="color: #47aeff;"></i>
+            <h3>Community Service</h3>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 mt-4">
+          <div class="icon-box">
+            <i class="ri-gradienter-line" style="color: #ffa76e;"></i>
+            <h3>Travel</h3>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 mt-4">
+          <div class="icon-box">
+            <i class="ri-file-list-3-line" style="color: #11dbcf;"></i>
+            <h3>Foreign languages</h3>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 mt-4">
+          <div class="icon-box">
+            <i class="ri-price-tag-2-line" style="color: #4233ff;"></i>
+            <h3>History</h3>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 mt-4">
+          <div class="icon-box">
+            <i class="ri-anchor-line" style="color: #b2904f;"></i>
+            <h3>Art</h3>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 mt-4">
+          <div class="icon-box">
+            <i class="ri-disc-line" style="color: #b20969;"></i>
+            <h3>Music 
+			
+			Listing</h3>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 mt-4">
+          <div class="icon-box">
+            <i class="ri-base-station-line" style="color: #ff5828;"></i>
+            <h3>Blog writing</h3>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 mt-4">
+          <div class="icon-box">
+            <i class="ri-fingerprint-line" style="color: #29cc61;"></i>
+            <h3>Cycling</h3>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- End Interests -->
+
+    <!-- ======= Testimonials ======= -->
+    <div class="testimonials container">
+
+      <div class="section-title">
+        <h2>Testimonials</h2>
+      </div>
+
+      <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+        <div class="swiper-wrapper">
+
+          <div class="swiper-slide">
+            <div class="testimonial-item">
+              <p>
+                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                He is a very hardworking guy. I have developed multiple websites from him. He is easy to work..
+                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+              </p>
+              <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+              <h3>Ahsan Zahid</h3>
+              <h4>Ceo &amp; Founder</h4>
+            </div>
+          </div><!-- End testimonial item -->
+
+          <div class="swiper-slide">
+            <div class="testimonial-item">
+              <p>
+                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                Zeeshan has worked with my team and we found him very cooperative and hardworking
+
+                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+              </p>
+              <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
+              <h3>Waleed Mansoor</h3>
+              <h4>S G Designer</h4>
+            </div>
+          </div><!-- End testimonial item -->
+
+          <div class="swiper-slide">
+            <div class="testimonial-item">
+              <p>
+                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                Zeeshan has developed many websites for me. He is a very kind person and a good designer.
+                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+              </p>
+              <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
+              <h3>M Taimur Khan</h3>
+              <h4>HR Manager, UAE</h4>
+            </div>
+          </div><!-- End testimonial item -->
+
+          <div class="swiper-slide">
+            <div class="testimonial-item">
+              <p>
+                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+               It was a very nice experience working with him. He was very thorough and professional
+                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+              </p>
+              <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
+              <h3>Noman Tariq</h3>
+              <h4>Data Engineer, UAE</h4>
+            </div>
+          </div><!-- End testimonial item -->
+
+          <div class="swiper-slide">
+            <div class="testimonial-item">
+              <p>
+                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                A hardworking and professional person who understood my requirements for my site
+
+                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+              </p>
+              <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
+              <h3>Ali Raza</h3>
+              <h4>Entrepreneur</h4>
+            </div>
+          </div><!-- End testimonial item -->
+			<div class="swiper-slide">
+            <div class="testimonial-item">
+              <p>
+                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                Amazing experience with Zeeshan. A highly proficient Shopify Developer. Highly recommended
+                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+              </p>
+              <img src="assets/img/testimonials/testimonials-11.jpg" class="testimonial-img" alt="">
+              <h3>M Amir</h3>
+              <h4>CEO Branding Bytes</h4>
+            </div>
+          </div><!-- End testimonial item -->
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+
+      <div class="owl-carousel testimonials-carousel">
+
+      </div>
+
+    </div><!-- End Testimonials  -->
+
+  </section><!-- End About Section -->
+
+  <!-- ======= Resume Section ======= -->
+  <section id="resume" class="resume">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Resume</h2>
+        <p>Review My Resume</p>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-6">
+          <h3 class="resume-title">Sumary</h3>
+          <div class="resume-item pb-0">
+            <h4>About Me</h4>
+            <p><em>Accomplished web developer with 5+ years of experience in designing and maintaining websites. Recognized for leadership and collaborative abilities when working in team settings. Motivated to provide clients with user-friendly Website.</em></p>
+            <p>
+            <ul>
+              <li>Al Zahiyah, Abu Dhabi</li>
+              <li>+971 50 157 3274</li>
+              <li>mzeeshanfayyaz93@gmail</li>
+            </ul>
+            </p>
+          </div>
+
+          <h3 class="resume-title">Education</h3>
+          <div class="resume-item">
+            <h4>Bachelor in Software Engineering</h4>
+            <h5>2011 - 2015</h5>
+            <p><em>University of Engineering and Technology, Taxila PK</em></p>
+            <p>Data Analysis, Web Engineering, Database Management System, System Programming, Data structure and Algorithms, Data Communication and Networking, Networking</p>
+          </div>
+          <div class="resume-item">
+            <h4>FSc Pre-Engineering</h4>
+            <h5>2009 - 2011</h5>
+            <p><em>F.G. Degree College, Lahore Cantt</em></p>
+            <p>Pass intermediate with first division from mention College under Federal Board of Intermediate and Secondary Education, Islamabad </p>
+          </div>
+		   <div class="resume-item">
+            <h4>Matric With Science </h4>
+            <h5>2006 - 2008</h5>
+            <p><em>Garrison Boys High School, Lahore Cantt</em></p>
+            <p>Pass Matric with first division from mention School under Federal Board of Intermediate and Secondary Education, Islamabad </p>
+          </div>
+		  <div class="resume-item pb-0">
+            <h4>Career Objective</h4>
+            <p>Talented individual with in-depth knowledge of designing and development tools and coding languages. Desirous of the role of Software Developer at AP Inc. to apply 5+ years of work experience in innovating software designs, testing and coding as well as debugging programs and troubleshooting and augmenting the company’s reputation.</p>
+            
+          </div>
+		  
+        </div>
+        <div class="col-lg-6">
+          <h3 class="resume-title">Professional Experience</h3>
+          <div class="resume-item">
+            <h4>Senior Website Developer</h4>
+            <h5>2017 - 2021 (Shopify | WordPress | WIX | Frontend Developer ) </h5>
+            <p><em>Wolfiz - SNC Centre Blue Area, Islamabad PK</em></p>
+            <p>
+            <ul>
+			<li>Meeting with clients to discuss website design and function.</li>
+              <li>Lead in design, development, and implementation of the graphic, layout, and production communication materials</li>
+              <li>Delegate tasks to the 4 members of the design team and provide counsel on all aspects of the project. </li>
+			  <li>reated public and private Shopify apps</li>
+              <li>Supervise the assessment of all graphic materials in order to ensure quality and accuracy of the design</li>
+              <li>Generated WordPress themes from custom HTML, Modify plugins, Troubleshooting content issues.</li>
+            </ul>
+            </p>
+          </div>
+          <div class="resume-item">
+            <h4>WordPress Design Specialist</h4>
+            <h5>2016 - 2017</h5>
+            <p><em>iPlex - Behria Town, Islamabad PK</em></p>
+            <p>
+            <ul>
+			<li>Detailed experience in customizing theme, add HTML in custom theme, Remodified theme with custom coding.</li>
+              <li>Designing and managing the website back-end including database and server integration</li>
+              <li>Monitoring the performance of live site</li>
+              <li>Recommended and consulted with clients on the most appropriate graphic design</li>
+              <li>Ensured high performance for mobile and desktop web applications.</li>
+              <li>Meeting with clients to discuss website design and function</li>
+              <li>Creating websites that are user-friendly, effective and appealing</li>
+              <li>Write clean, cross-browser, standards-compliant code</li>
+              <li>Cooperated with the back-end developer in the process of building the services required to fulfil the business</li>
+            </ul>
+            </p>
+          </div>
+		  
+		  <div class="resume-item">
+            <h4>Social Media Manager</h4>
+            <h5>2017 - 2019 (Personal Client )</h5>
+            <p><em>I’m an experienced social media manager familiar with all platforms and many different business types. I can grow followers by up to 10k per month as I have done this for several clients before. </em></p>
+            <p>
+            <ul>
+			<li>Increased incoming quality B2B leads by 40% in 6 months by engaging in LinkedIn, Reddit, and Facebook groups.</li>
+              <li>Automated normal daily posting activities.</li>
+              <li>Learned photoshop to create custom banners and other images for use in campaigns, resulting in a 15% boost in engagement.</li>
+              <li>Used Buffer, Zapier, and Trello to automate around 60% of the day-to-day social media posting while not sacrificing quality.</li>
+              
+            </ul>
+            </p>
+          </div>
+		  
+		  
+		  <div class="resume-item">
+            <h4>Frontend Developer</h4>
+            <h5>2015 - 2016</h5>
+            <p><em>Webmekanics - Race Course Road, Rawalpindi PK</em></p>
+            <p>
+            <ul>
+			<li>Proficient in building Web User Interface (UI) using latest W3C/WCAG Web Standards that are cross browser compatible.</li>
+              <li>Good knowledge on writing code for Automation test cases.</li>
+              <li>Experience in all phases of Software Development Life Cycle (SDLC) including Analysis, Design, Development, Documentation, Testing, Deployment, Version Control and production support.</li>
+              <li>Participated in development of a well responsive single page application using AngularJS framework and JavaScript in conjunction with HTML5, CSS3 standards.</li>
+              <li>Ensured high performance for mobile and desktop web applications.</li>
+              <li>Coded frontend interface with Bootstrap, Angular JS, CSS, JS and HTML5.</li>
+            </ul>
+            </p>
+          </div>
+        </div>
+      </div>
+
     </div>
+  </section><!-- End Resume Section -->
 
-    <!-- js plugins file -->
-    <script src="scripts/plugins.min.js"></script>
+  <!-- ======= Services Section ======= -->
+  <section id="services" class="services">
+    <div class="container">
 
-    <!-- main script file -->
-    <script src="scripts/main.js"></script>
-  </body>
+      <div class="section-title">
+        <h2>Services</h2>
+        <p>My Services</p>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+          <div class="icon-box">
+            <div class="icon"><i class="bx bxl-dribbble"></i></div>
+            <h4><a href="">Shopify</a></h4>
+            <p>Experience in an e-commerce or internet start up, with liquid templating experience in Shopify.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
+          <div class="icon-box">
+            <div class="icon"><i class="bx bx-file"></i></div>
+            <h4><a href="">WordPress</a></h4>
+            <p>Proficient and creative WordPress developer with a strong history in website management and development.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
+          <div class="icon-box">
+            <div class="icon"><i class="bx bx-tachometer"></i></div>
+            <h4><a href="">Social Media Manager</a></h4>
+            <p>Marketing professional with 2+ years of experience in social media management, content marketing, and branding</p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
+          <div class="icon-box">
+            <div class="icon"><i class="bx bx-world"></i></div>
+            <h4><a href="">WIX</a></h4>
+            <p>Good command in WIX tools, Design and Develop responsive website website in Wix tools </p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
+          <div class="icon-box">
+            <div class="icon"><i class="bx bx-slideshow"></i></div>
+            <h4><a href="">Frontend Developer</a></h4>
+            <p>Highly skilled in HTML/CSS/JavaScript/JQuery and working knowledge of Photoshop. Well-versed in Scrum and Agile.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
+          <div class="icon-box">
+            <div class="icon"><i class="bx bx-arch"></i></div>
+            <h4><a href="">Photoshop</a></h4>
+            <p>Skilled in Adobe Creative Suite, including Photoshop, InDesign, Illustrator, and more.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section><!-- End Services Section -->
+
+  <!-- ======= Portfolio Section ======= -->
+  <section id="portfolio" class="portfolio">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Portfolio</h2>
+        <p>My Works</p>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12 d-flex justify-content-center">
+          <ul id="portfolio-flters">
+            <li data-filter="*" class="filter-active">All</li>
+            <li data-filter=".filter-app">Shopify</li>
+            <li data-filter=".filter-card">WordPress</li>
+            <li data-filter=".filter-web">Frontend Developer</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row portfolio-container">
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+          <div class="portfolio-wrap">
+            <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>FreedomFi</h4>
+              <p>Website and Social Media</p>
+              <div class="portfolio-links">
+             
+                <a href="https://freedomfi.com/" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+          <div class="portfolio-wrap">
+            <img src="assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>Podiatry Town</h4>
+              <p>Website</p>
+              <div class="portfolio-links">
+         
+                <a href="https://wolfiz.org/completed/podiatry/" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+          <div class="portfolio-wrap">
+            <img src="assets/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>Verita</h4>
+              <p>Website & Social Media</p>
+              <div class="portfolio-links">
+             
+                <a href="https://verita.org/" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-card filter-app">
+          <div class="portfolio-wrap">
+            <img src="assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>Card 2</h4>
+              <p>website</p>
+              <div class="portfolio-links">
+               
+                <a href="portfolio-details.html" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-card filter-app">
+          <div class="portfolio-wrap">
+            <img src="assets/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>Web 2</h4>
+              <p>Website</p>
+              <div class="portfolio-links">
+             
+                <a href="portfolio-details.html" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-app filter-app">
+          <div class="portfolio-wrap">
+            <img src="assets/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>App 3</h4>
+              <p>App</p>
+              <div class="portfolio-links">
+              
+                <a href="portfolio-details.html" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+          <div class="portfolio-wrap">
+            <img src="assets/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>Rockzfx </h4>
+              <p>Card</p>
+              <div class="portfolio-links">
+                
+                <a href="https://rockzfx.com/" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-card filter-app">
+          <div class="portfolio-wrap">
+            <img src="assets/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>Card 3</h4>
+              <p>Card</p>
+              <div class="portfolio-links">
+             
+                <a href="portfolio-details.html" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+          <div class="portfolio-wrap">
+            <img src="assets/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>WHITE SUEDE FINE JEWELRY</h4>
+              <p>Web & Social Media</p>
+              <div class="portfolio-links">
+                
+                <a href="https://whitesuedejewelry.com/" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section><!-- End Portfolio Section -->
+
+  <!-- ======= Contact Section ======= -->
+  <section id="contact" class="contact">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Contact</h2>
+        <p>Contact Me</p>
+      </div>
+
+      <div class="row mt-2">
+
+        <div class="col-md-6 d-flex align-items-stretch">
+          <div class="info-box">
+            <i class="bx bx-map"></i>
+            <h3>My Address</h3>
+            <p>Al Zahiyah, Abu Dhabi</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 mt-4 mt-md-0 d-flex align-items-stretch">
+          <div class="info-box">
+            <i class="bx bx-share-alt"></i>
+            <h3>Social Profiles</h3>
+            <div class="social-links">
+              <a href="https://twitter.com/MZeeshanFayyaz" class="twitter"><i class="bi bi-twitter"></i></a>
+              <a href="https://www.facebook.com/MZeeshanFayyaz01/" class="facebook"><i class="bi bi-facebook"></i></a>
+              <a href="https://www.linkedin.com/in/m-zeeshan-fayyaz-a5b460114/" class="linkedin"><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+ 
+        <div class="col-md-6 mt-4 d-flex align-items-stretch">
+          <div class="info-box">
+            <i class="bx bx-envelope"></i>
+            <h3>Email Me</h3>
+            <p>mzeeshanfayyaz93@gmail.com</p>
+          </div>
+        </div>
+        <div class="col-md-6 mt-4 d-flex align-items-stretch">
+          <div class="info-box">
+            <i class="bx bx-phone-call"></i>
+            <h3>Call Me</h3>
+            <p>+971 50 157 3274</p>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </section><!-- End Contact Section -->
+
+  <div class="credits">
+    <!-- All the links in the footer should remain intact. -->
+    <!-- You can delete the links only if you purchased the pro version. -->
+    <!-- Licensing information: https://bootstrapmade.com/license/ -->
+    <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/personal-free-resume-bootstrap-template/ -->
+    Design & Developer By <a href="https://bootstrapmade.com/"> M Zeeshan Fayyaz </a>
+  </div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
 </html>
