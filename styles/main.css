@@ -5167,3 +5167,17 @@ html[dir="rtl"] .contact-section .section-content .contact-form .phone-number .f
 .contact-section .section-content .contact-form .submit-btn {
   width: 100%;
 }
+.text-center.download.area.main a {
+    background: #fff;
+    color: #000000;
+    padding: 12px 15px;
+    line-height: 25px;
+    font-weight: 800;
+    font-size: 18px;
+}.text-center.download.area.main {
+    height: 81px;
+    margin: 50px 0 0;
+}.text-center.download.area.main a:hover {
+    background: #18d26e;
+    color: #fff;
+}
