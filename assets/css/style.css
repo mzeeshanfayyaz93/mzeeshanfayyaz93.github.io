@@ -153,8 +153,8 @@ h1, h2, h3, h4, h5, h6 {
   #header.header-top {
     height: 60px;
   }
-  #header.header-top h1 {
-    font-size: 26px;
+  #header.header-top h1 , .section-title p{
+    font-size:19px !important;
   }
 }
 
