@@ -1056,8 +1056,42 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
   
-<script src="https://apps.elfsight.com/p/platform.js" defer></script>
-<div class="elfsight-app-05391d8d-65c6-411f-b435-46be3c035c54"></div>
+<script>
+    var url = 'https://wati-integration-service.clare.ai/ShopifyWidget/shopifyWidget.js?9283';
+    var s = document.createElement('script');
+    s.type = 'text/javascript';
+    s.async = true;
+    s.src = url;
+    var options = {
+  "enabled":true,
+  "chatButtonSetting":{
+      "backgroundColor":"#4dc247",
+      "ctaText":"Chat me",
+      "borderRadius":"25",
+      "marginLeft":"0",
+      "marginBottom":"50",
+      "marginRight":"50",
+      "position":"right"
+  },
+  "brandSetting":{
+      "brandName":"Mohammad Zeeshan Fayyaz",
+      "brandSubTitle":"Web Developer - Shopify | WordPress | Frontend (React JS) | WIX Developer | IT Support",
+      "brandImg":"https://media.licdn.com/dms/image/D4D03AQGsshnjOhvKEg/profile-displayphoto-shrink_100_100/0/1672734511290?e=1678924800&v=beta&t=UDWo_4viXehLp18leOE6GKHdsaPsh75Ju0pZO-qptzM",
+      "welcomeText":"Hi there!\nI am very happy to welcome you.\nHow can I help you?",
+      "messageText":"Hello, I have a question about {{page_link}}",
+      "backgroundColor":"#0a5f54",
+      "ctaText":"Start Chat",
+      "borderRadius":"25",
+      "autoShow":false,
+      "phoneNumber":"971501573274"
+  }
+};
+    s.onload = function() {
+        CreateWhatsappChatWidget(options);
+    };
+    var x = document.getElementsByTagName('script')[0];
+    x.parentNode.insertBefore(s, x);
+</script>
 
 </body>
 
