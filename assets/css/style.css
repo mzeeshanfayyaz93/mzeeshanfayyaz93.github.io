@@ -18,7 +18,7 @@ body {
 body::before {
   content: ""; 
   position: fixed;
-  background: #040404 url("../img/bg.jpg") top right no-repeat;  
+  background: #040404 url("../img/herobg.png") bottom center no-repeat;  
   background-size: cover;
   left: 0;
   right: 0;
@@ -97,8 +97,8 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #fff !important;
-  color: #000;
+  background: #de1f26 !important;
+  color: #fff;
   line-height: 1;
   margin-right: 8px;
   border-radius: 50%;
@@ -106,8 +106,8 @@ h1, h2, h3, h4, h5, h6 {
   height: 40px;
 }
 #header .social-links a:hover {
-  background: #de1f26 !important;
-  color: #fff;
+  background: #fff !important;
+  color: #de1f26;
 }
 @media (max-width: 992px) {
   #header h1 {
@@ -306,8 +306,8 @@ section.section-show {
   padding-bottom: 45px;
 }
 section .container {
-  background: rgba(0, 0, 0, 0.9);
-  padding: 30px;
+  background: rgb(0 0 0 / 47%);
+    padding: 30px;
 }
 @media (max-width: 768px) {
   section {
