@@ -2,6 +2,8 @@ import { ImageResponse } from "next/og";
 import { profile } from "@/lib/content";
 import { interFonts } from "@/lib/og-fonts";
 
+export const dynamic = "force-static";
+
 export const alt = `${profile.name}, ${profile.title} in Dubai`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";

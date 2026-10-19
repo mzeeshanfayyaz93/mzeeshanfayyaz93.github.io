@@ -56,4 +56,6 @@ Intro curtain (`components/Intro.tsx`), letter-by-letter name reveal, magnetic b
 
 ## Deploy
 
-Push to GitHub and import into **Vercel** (zero config), or `npm run build` and host anywhere that runs Next.js.
+**GitHub Pages** (`https://mzeeshanfayyaz93.github.io`): push to `main` — the workflow in `.github/workflows/deploy-pages.yml` runs `next build` (static export to `out/`) and publishes it. In the repo **Settings → Pages**, set **Build and deployment → Source** to **GitHub Actions** (not “Deploy from branch”).
+
+Alternatively import into **Vercel** (zero config) for SSR without static export.
