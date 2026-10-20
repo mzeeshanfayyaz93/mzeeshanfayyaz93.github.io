@@ -18,6 +18,8 @@ export const profile = {
     "https://wa.me/971525058849?text=Hi%20Zeeshan!%20I%20visited%20your%20portfolio%20and%20I'm%20interested%20in%20working%20with%20you.%20Could%20we%20discuss%20a%20project%3F",
   jobType: "Full-time / Freelance",
   cv: "/Zeeshan_CV.pdf",
+  /** About section portrait (file in /public). */
+  photo: "/profile.jpg",
   roles: [
     "fast, multilingual web apps",
     "custom Shopify & WordPress themes",

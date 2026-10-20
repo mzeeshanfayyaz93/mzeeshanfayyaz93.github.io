@@ -61,7 +61,7 @@ export function jsonLd() {
         jobTitle: profile.title,
         description: profile.summary,
         url: `${siteUrl}/`,
-        image: `${siteUrl}/me.webp`,
+        image: `${siteUrl}${profile.photo}`,
         email: `mailto:${profile.email}`,
         telephone: profile.phone,
         worksFor: { "@type": "Organization", name: profile.company },

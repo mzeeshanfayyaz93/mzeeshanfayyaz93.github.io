@@ -5,7 +5,7 @@ import { motion, useInView } from "framer-motion";
 import { Reveal, SectionHeading } from "./Reveal";
 import TiltCard from "./TiltCard";
 import { highlights, interests, marquee, profile } from "@/lib/content";
-import { Counter, img, splitStat } from "./ui";
+import { Counter, splitStat } from "./ui";
 
 /** Bento grid. Each tile does one thing: portrait, story, numbers, stack, status, AI tools. */
 const tools = ["Claude", "ChatGPT", "Cursor", "DeepSeek", "Grok", "AbacusAI"];
@@ -44,8 +44,8 @@ function Ring() {
   const text = "SENIOR WEB DEVELOPER • TEAM LEAD • FINTECH • NEXT.JS • ";
   return (
     <motion.svg
-      viewBox="0 0 200 200"
-      className="absolute inset-0 h-full w-full"
+      viewBox="-12 -12 224 224"
+      className="absolute -inset-3 h-[calc(100%+1.5rem)] w-[calc(100%+1.5rem)] overflow-visible"
       animate={{ rotate: 360 }}
       transition={{ duration: 70, repeat: Infinity, ease: "linear" }}
       aria-hidden="true"
@@ -165,8 +165,8 @@ function TerminalPane({ script, side, delay = 0 }: { script: Line[]; side: "left
 
 // Hide the text behind the photo ring and the name, so it reads as a backdrop on every other side.
 const hole = [
-  "radial-gradient(circle at 50% calc(50% + var(--cy)), transparent calc(var(--ring) / 2 + 2px), #000 calc(var(--ring) / 2 + 46px))",
-  "radial-gradient(ellipse 250px var(--nh) at 50% calc(50% + var(--ring) / 2 + 12px), transparent 82%, #000 100%)",
+  "radial-gradient(circle at 50% var(--mask-y), transparent calc(var(--ring) / 2 + 2px), #000 calc(var(--ring) / 2 + 52px))",
+  "radial-gradient(ellipse var(--name-w) var(--nh) at 50% calc(var(--mask-y) + var(--ring) / 2 + 16px), transparent 82%, #000 100%)",
 ].join(", ");
 
 function TerminalBackdrop() {
@@ -192,15 +192,15 @@ export default function About() {
         {/* portrait */}
         <Reveal className="lg:col-span-2 lg:row-span-2">
           <TiltCard
-            className="relative flex h-full min-h-[400px] flex-col items-center justify-center overflow-hidden p-8 [--ring:256px] [--cy:-54px] [--nh:84px] sm:[--ring:288px] sm:[--cy:-38px] sm:[--nh:58px]"
+            className="relative flex h-full min-h-[580px] flex-col items-center justify-center overflow-hidden p-8 [--ring:416px] [--mask-y:42%] [--name-w:22rem] [--nh:72px] sm:[--mask-y:41%] sm:[--nh:56px]"
             strength={5}
           >
             <TerminalBackdrop />
-            <div className="relative z-10 h-64 w-64 sm:h-72 sm:w-72">
+            <div className="relative z-10 size-96 shrink-0 overflow-visible">
               <Ring />
-              <div className="absolute inset-9 overflow-hidden rounded-full border border-line bg-black shadow-[0_0_60px_-10px_var(--accent)]">
+              <div className="absolute inset-6 overflow-hidden rounded-full border border-line bg-black shadow-[0_0_60px_-10px_var(--accent)]">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={img("me", "/me.webp")} alt="Mohammad Zeeshan Fayyaz" className="h-full w-full object-cover" />
+                <img src={profile.photo} alt={profile.name} className="h-full w-full object-cover object-[center_18%]" />
               </div>
             </div>
             <h3 className="relative z-10 mt-6 font-display text-2xl font-semibold">{profile.name}</h3>
