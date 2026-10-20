@@ -44,17 +44,18 @@ function Ring() {
   const text = "SENIOR WEB DEVELOPER • TEAM LEAD • FINTECH • NEXT.JS • ";
   return (
     <motion.svg
-      viewBox="-12 -12 224 224"
-      className="absolute -inset-3 h-[calc(100%+1.5rem)] w-[calc(100%+1.5rem)] overflow-visible"
+      viewBox="0 0 200 200"
+      className="pointer-events-none absolute inset-0 h-full w-full"
       animate={{ rotate: 360 }}
       transition={{ duration: 70, repeat: Infinity, ease: "linear" }}
       aria-hidden="true"
     >
       <defs>
-        <path id="ringPath" d="M100,100 m-86,0 a86,86 0 1,1 172,0 a86,86 0 1,1 -172,0" />
+        {/* r=88 keeps labels inside the size-80 frame (card uses overflow-hidden). */}
+        <path id="aboutRingPath" d="M100,100 m-88,0 a88,88 0 1,1 176,0 a88,88 0 1,1 -176,0" />
       </defs>
-      <text fontSize="10.5" letterSpacing="2.6" fill="var(--muted)" fontWeight="600">
-        <textPath href="#ringPath">{text.repeat(2)}</textPath>
+      <text fontSize="9.25" letterSpacing="2.15" fill="var(--muted)" fontWeight="600">
+        <textPath href="#aboutRingPath">{text.repeat(2)}</textPath>
       </text>
     </motion.svg>
   );
@@ -192,13 +193,13 @@ export default function About() {
         {/* portrait */}
         <Reveal className="lg:col-span-2 lg:row-span-2">
           <TiltCard
-            className="relative flex h-full min-h-[580px] flex-col items-center justify-center overflow-hidden p-8 [--ring:416px] [--mask-y:42%] [--name-w:22rem] [--nh:72px] sm:[--mask-y:41%] sm:[--nh:56px]"
+            className="relative flex h-full min-h-[500px] flex-col items-center justify-center overflow-hidden p-8 [--ring:352px] [--mask-y:42%] [--name-w:20rem] [--nh:68px] sm:[--mask-y:41%] sm:[--nh:52px]"
             strength={5}
           >
             <TerminalBackdrop />
-            <div className="relative z-10 size-96 shrink-0 overflow-visible">
+            <div className="relative z-10 size-80 shrink-0">
               <Ring />
-              <div className="absolute inset-6 overflow-hidden rounded-full border border-line bg-black shadow-[0_0_60px_-10px_var(--accent)]">
+              <div className="absolute inset-8 overflow-hidden rounded-full border border-line bg-black shadow-[0_0_60px_-10px_var(--accent)]">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={profile.photo} alt={profile.name} className="h-full w-full object-cover object-[center_18%]" />
               </div>
