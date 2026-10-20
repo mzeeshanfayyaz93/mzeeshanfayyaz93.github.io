@@ -6,17 +6,9 @@ import { Menu, X } from "lucide-react";
 import ThemeSwitcher from "./ThemeSwitcher";
 import Logo from "./Logo";
 import { profile } from "@/lib/content";
+import { siteSections } from "@/lib/site-sections";
 
-const links = [
-  { id: "about", label: "About" },
-  { id: "services", label: "Services" },
-  { id: "skills", label: "Skills" },
-  { id: "experience", label: "Experience" },
-  { id: "projects", label: "Projects" },
-  { id: "work", label: "Work" },
-  { id: "reviews", label: "Reviews" },
-  { id: "contact", label: "Contact" },
-];
+const links = siteSections.map(({ id, label }) => ({ id, label }));
 
 export default function Navbar() {
   const [active, setActive] = useState("");
