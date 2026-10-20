@@ -1,7 +1,7 @@
 import { statSync } from "node:fs";
 import path from "node:path";
 import type { MetadataRoute } from "next";
-import { clientWork, profile } from "@/lib/content";
+import { profile } from "@/lib/content";
 import { siteUrl } from "@/lib/seo";
 import { siteSections } from "@/lib/site-sections";
 
@@ -20,15 +20,6 @@ function absolute(pathname: string): string {
   return `${base}${pathPart}`;
 }
 
-/** Portfolio images on the homepage (image sitemap hints for Search Console). */
-function homeImages(): string[] {
-  const images = new Set<string>([absolute("/me.webp")]);
-  for (const item of clientWork) {
-    images.add(absolute(`/work/${item.image}.webp`));
-  }
-  return [...images];
-}
-
 /**
  * Builds sitemap entries from live content. Regenerated on each `next build`;
  * `lastModified` follows `lib/content.ts` on disk.
@@ -41,7 +32,6 @@ export function buildSitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: "weekly",
       priority: 1,
-      images: homeImages(),
     },
   ];
 
