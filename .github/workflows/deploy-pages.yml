@@ -27,6 +27,8 @@ jobs:
       - run: npm run build
         env:
           NEXT_PUBLIC_SITE_URL: https://mzeeshanfayyaz93.github.io
+          NEXT_PUBLIC_GA_MEASUREMENT_ID: G-EMQWGLK41V
+          NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION: google8cffbe7b7af55c9d
       - uses: actions/upload-pages-artifact@v3
         with:
           path: out
