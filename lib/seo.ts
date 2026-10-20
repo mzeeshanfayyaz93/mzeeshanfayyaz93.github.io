@@ -4,11 +4,11 @@ import { profile } from "./content";
 export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? profile.site).replace(/\/$/, "");
 
 export const seo = {
-  title: "Mohammad Zeeshan Fayyaz | Senior Web Developer in Dubai",
+  title: "Senior Web Developer Dubai | Mohammad Zeeshan Fayyaz",
   shortTitle: "Zeeshan Fayyaz | Web Developer, Dubai",
   // Kept under 160 characters so Google shows it in full.
   description:
-    "Senior Web Developer & Team Lead in Dubai with 8+ years of experience. Custom Next.js, Shopify and WordPress websites, MT5/MT4 trading integrations and automation.",
+    "Team Lead and full-stack developer in Dubai: Next.js, React, Node.js, Shopify and WordPress. 200+ sites delivered, 20+ markets, trading platform and Salesforce integrations.",
   keywords: [
     "web developer Dubai",
     "senior web developer",
