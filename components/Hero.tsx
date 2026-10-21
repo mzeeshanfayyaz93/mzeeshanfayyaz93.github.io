@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import dynamic from "next/dynamic";
 import {
   AnimatePresence,
   motion,
@@ -16,18 +15,7 @@ import { ArrowDown, ArrowUpRight, Download, Mail } from "lucide-react";
 import { profile } from "@/lib/content";
 import { GitHubIcon, LinkedInIcon } from "./Icons";
 import Magnetic from "./Magnetic";
-
-const Globe = dynamic(() => import("./Globe"), {
-  ssr: false,
-  loading: () => (
-    <div className="absolute inset-0 grid place-items-center" aria-hidden="true">
-      <div
-        className="h-[55%] w-[55%] rounded-full opacity-40 blur-3xl"
-        style={{ background: "radial-gradient(circle, var(--accent-2), transparent 70%)" }}
-      />
-    </div>
-  ),
-});
+import CodeEditor from "./CodeEditor";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -149,12 +137,15 @@ export default function Hero() {
     return () => window.removeEventListener("pointermove", onMove);
   }, [rawX, rawY]);
 
-  // scroll parallax: copy drifts up and fades, globe sinks and dims
+  // scroll parallax: copy drifts up and fades, the editor sinks slightly
   const { scrollY } = useScroll();
   const textY = useTransform(scrollY, [0, 600], [0, -80]);
   const textOpacity = useTransform(scrollY, [0, 520], [1, 0]);
-  const globeY = useTransform(scrollY, [0, 800], [0, 140]);
-  const globeOpacity = useTransform(scrollY, [0, 800], [1, 0.15]);
+  const editorY = useTransform(scrollY, [0, 800], [0, 40]);
+  const editorOpacity = useTransform(scrollY, [0, 1000], [1, 0.65]);
+  // gentle 3D tilt that follows the pointer
+  const tiltY = useTransform(mx, (v) => v * 5);
+  const tiltX = useTransform(my, (v) => v * -4);
 
   const fadeUp = (i: number) => ({
     initial: { opacity: 0, y: 26 },
@@ -164,39 +155,20 @@ export default function Hero() {
 
   return (
     <section id="top" className="relative flex min-h-[100svh] items-center overflow-hidden">
-      {/* breathing glow behind the globe */}
+      {/* breathing glow behind the editor */}
       <motion.div
         aria-hidden="true"
-        className="pointer-events-none absolute right-[-10%] top-1/2 h-[90vmin] w-[90vmin] -translate-y-1/2 rounded-full lg:right-[2%]"
+        className="pointer-events-none absolute right-[-12%] top-1/2 h-[80vmin] w-[80vmin] -translate-y-1/2 rounded-full lg:right-[0%]"
         style={{ background: "radial-gradient(circle, var(--glow), transparent 68%)" }}
-        animate={reduce ? undefined : { scale: [1, 1.1, 1], opacity: [0.55, 0.9, 0.55] }}
+        animate={reduce ? undefined : { scale: [1, 1.1, 1], opacity: [0.45, 0.8, 0.45] }}
         transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
       />
-
-      {/* 3D globe: on large screens it sits on the right, on small screens it fades in behind the text */}
-      <div className="absolute inset-0 opacity-80 sm:opacity-60 lg:left-[40%] lg:opacity-100">
-        <motion.div style={{ y: globeY, opacity: globeOpacity }} className="absolute inset-0">
-          <Globe />
-        </motion.div>
-
-        {/* floating tech chips (desktop only) */}
-        <div className="pointer-events-none absolute inset-0 hidden lg:block" aria-hidden="true">
-          <FloatChip label="Next.js 14" className="left-[24%] top-[15%]" depth={26} mx={mx} my={my} delay={base + 0.9} />
-          <FloatChip label="MT5 / MT4 API" className="right-[8%] top-[20%]" depth={40} mx={mx} my={my} delay={base + 1.1} dot="bg-accent3" />
-          <FloatChip label="Salesforce" className="right-[4%] top-[52%]" depth={30} mx={mx} my={my} delay={base + 1.3} dot="bg-accent2" />
-          <FloatChip label="Node.js · Strapi" className="left-[30%] bottom-[9%]" depth={46} mx={mx} my={my} delay={base + 1.5} dot="bg-accent2" />
-          <FloatChip label="20+ markets" className="bottom-[22%] right-[12%]" depth={22} mx={mx} my={my} delay={base + 1.7} />
-          <FloatChip className="left-[50%] top-[21%]" depth={34} mx={mx} my={my} delay={base + 1.9} dot="bg-accent3">
-            <DubaiTime />
-          </FloatChip>
-        </div>
-      </div>
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-gradient-to-r from-bg/90 via-bg/55 to-transparent lg:from-bg lg:via-bg/35"
+        className="absolute inset-0 bg-gradient-to-r from-bg/80 via-bg/30 to-transparent lg:from-bg/60 lg:via-transparent"
       />
 
-      <div className="relative mx-auto w-full max-w-6xl px-5 pb-16 pt-32 sm:px-6">
+      <div className="relative mx-auto grid w-full max-w-6xl items-center gap-12 px-5 pb-16 pt-32 sm:px-6 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] lg:gap-10">
         <motion.div style={{ y: textY, opacity: textOpacity }} className="max-w-2xl">
           <motion.div
             {...fadeUp(0)}
@@ -214,7 +186,7 @@ export default function Hero() {
           </motion.p>
 
           <h1
-            className="font-display text-5xl font-bold leading-[1.02] tracking-tight sm:text-7xl lg:text-8xl"
+            className="font-display text-5xl font-bold leading-[1.02] tracking-tight sm:text-7xl lg:text-7xl xl:text-8xl"
           >
             <Letters text="Mohammad" delay={base + 0.2} />{" "}
             <motion.span
@@ -288,6 +260,27 @@ export default function Hero() {
               </Magnetic>
             ))}
           </motion.div>
+        </motion.div>
+
+        {/* live code editor (replaces the old globe) */}
+        <motion.div style={{ y: editorY, opacity: editorOpacity }} className="relative mx-auto w-full max-w-xl lg:max-w-none">
+          <motion.div
+            initial={{ opacity: 0, y: 40, scale: 0.96 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 1.6, delay: base + 0.8, ease }}
+            style={{ rotateX: tiltX, rotateY: tiltY, transformPerspective: 1200 }}
+          >
+            <CodeEditor />
+          </motion.div>
+
+          <div className="pointer-events-none absolute inset-0 hidden lg:block" aria-hidden="true">
+            <FloatChip label="Next.js 16" className="-left-8 -top-5" depth={22} mx={mx} my={my} delay={base + 1.6} />
+            <FloatChip label="Salesforce" className="-top-5 right-20" depth={28} mx={mx} my={my} delay={base + 2.2} dot="bg-accent2" />
+            <FloatChip label="MT5 / MT4 API" className="-right-4 top-[22%]" depth={34} mx={mx} my={my} delay={base + 1.9} dot="bg-accent3" />
+            <FloatChip className="-bottom-5 right-6" depth={30} mx={mx} my={my} delay={base + 2.5} dot="bg-accent3">
+              <DubaiTime />
+            </FloatChip>
+          </div>
         </motion.div>
       </div>
 
