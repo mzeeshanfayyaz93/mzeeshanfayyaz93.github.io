@@ -204,8 +204,10 @@ export default function About() {
                 <img src={profile.photo} alt={profile.name} className="h-full w-full object-cover object-[center_18%]" />
               </div>
             </div>
-            <h3 className="relative z-10 mt-6 font-display text-2xl font-semibold">{profile.name}</h3>
-            <p className="relative z-10 text-sm text-muted">{profile.title}</p>
+            <h3 className="relative z-10 mt-6 max-w-[17rem] text-center font-display text-lg font-semibold leading-snug sm:max-w-none sm:text-2xl">
+              {profile.name}
+            </h3>
+            <p className="relative z-10 text-center text-sm text-muted sm:text-left">{profile.title}</p>
           </TiltCard>
         </Reveal>
 

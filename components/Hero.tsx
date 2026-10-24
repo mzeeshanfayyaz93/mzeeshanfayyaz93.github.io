@@ -172,21 +172,23 @@ export default function Hero() {
         <motion.div style={{ y: textY, opacity: textOpacity }} className="max-w-2xl">
           <motion.div
             {...fadeUp(0)}
-            className="glass mb-6 inline-flex items-center gap-2.5 rounded-full px-4 py-1.5 text-xs text-muted sm:text-sm"
+            className="glass mb-6 inline-flex max-w-full items-center gap-2 rounded-full px-3 py-1 text-[10px] leading-snug text-muted sm:gap-2.5 sm:px-4 sm:py-1.5 sm:text-sm sm:leading-normal"
           >
-            <span className="relative flex h-2 w-2">
+            <span className="relative flex h-1.5 w-1.5 shrink-0 sm:h-2 sm:w-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-70" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+              <span className="relative inline-flex h-full w-full rounded-full bg-accent" />
             </span>
-            {profile.title} · {profile.company}, {profile.location}
+            <span className="min-w-0">
+              {profile.title} · {profile.company}, {profile.location}
+            </span>
           </motion.div>
 
-          <motion.p {...fadeUp(1)} className="mb-2 font-mono text-sm uppercase tracking-[0.3em] text-accent">
+          <motion.p {...fadeUp(1)} className="mb-2 font-mono text-xs uppercase tracking-[0.28em] text-accent sm:text-sm sm:tracking-[0.3em]">
             Hello, I&apos;m
           </motion.p>
 
           <h1
-            className="font-display text-5xl font-bold leading-[1.02] tracking-tight sm:text-7xl lg:text-7xl xl:text-8xl"
+            className="font-display text-[2rem] font-bold leading-[1.05] tracking-tight sm:text-7xl sm:leading-[1.02] lg:text-7xl xl:text-8xl"
           >
             <Letters text="Mohammad" delay={base + 0.2} />{" "}
             <motion.span

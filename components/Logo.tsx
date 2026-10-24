@@ -1,5 +1,3 @@
-import { profile } from "@/lib/content";
-
 /** MZF badge with a slow light sweep across it. */
 export function LogoMark({ className = "h-8 w-11 text-[12px] sm:h-9 sm:w-12 sm:text-[13px]" }: { className?: string }) {
   return (
@@ -9,15 +7,6 @@ export function LogoMark({ className = "h-8 w-11 text-[12px] sm:h-9 sm:w-12 sm:t
   );
 }
 
-/** Badge plus the full name. */
 export default function Logo() {
-  return (
-    <span className="flex items-center gap-2">
-      <LogoMark />
-      <span className="whitespace-nowrap font-display text-[14px] font-semibold leading-none tracking-tight sm:text-lg">
-        <span className="logo-text">M Zeeshan Fayyaz</span>
-        <span className="sr-only"> - {profile.title}</span>
-      </span>
-    </span>
-  );
+  return <LogoMark />;
 }
